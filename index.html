@@ -99,6 +99,27 @@
         border-bottom-right-radius: 4px;
       }
 
+.quick {
+  display: flex;
+  gap: 8px;
+  padding: 10px 10px 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.quick button {
+  background: #ffffff;
+  color: #111827;
+  border: 1px solid #e5e7eb;
+  padding: 10px 12px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.quick button:active {
+  transform: translateY(1px);
+}
       #input-area {
         display: flex;
         padding: 10px 10px 14px;
@@ -173,7 +194,18 @@
       </div>
 
       <div id="chat"></div>
+<div id="chat"></div>
 
+<div class="quick">
+  <button type="button" onclick="quickAsk('영업시간 알려줘')">영업시간</button>
+  <button type="button" onclick="quickAsk('주차 되나요?')">주차</button>
+  <button type="button" onclick="quickAsk('와이파이 있나요?')">와이파이</button>
+  <button type="button" onclick="quickAsk('콘센트 있나요?')">콘센트</button>
+  <button type="button" onclick="quickAsk('반려동물 동반 되나요?')">반려동물</button>
+  <button type="button" onclick="quickAsk('예약 되나요?')">예약</button>
+</div>
+
+<form id="input-area">
       <form id="input-area">
         <input id="question"
           type="text"
@@ -248,6 +280,10 @@
             button.disabled = false;
           });
       });
+function quickAsk(text) {
+  input.value = text;
+  form.requestSubmit(); // 폼 submit 이벤트를 그대로 태움
+}
     </script>
   </body>
 </html>
